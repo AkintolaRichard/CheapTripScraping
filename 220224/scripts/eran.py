@@ -31,7 +31,7 @@ from forex_python.converter import CurrencyRates
 
 #from send_event_kinesis import send_event
 
-load_dotenv()
+#load_dotenv()
 
 # load env. variables
 log_dir_path = os.getenv("LOG_DIR_PATH")
@@ -45,7 +45,8 @@ base_csv_output_path = os.getenv('BASE_CSV_OUTPUT_PATH')
 
 start_time = time.time()
 
-
+print(os.getcwd())
+print("Starting!")
 # settings
 debug = 0
 limit_cities = 100  # limit cities to search
