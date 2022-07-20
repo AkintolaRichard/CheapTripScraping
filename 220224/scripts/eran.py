@@ -27,26 +27,25 @@ import time
 import geopy.distance
 import csv
 from forex_python.converter import CurrencyRates
-
+from pathlib import Path
 
 #from send_event_kinesis import send_event
 
-#load_dotenv()
-
+load_dotenv()
+BASE_DIR = Path(__file__).resolve().parent.parent
 # load env. variables
-log_dir_path = os.getenv("LOG_DIR_PATH")
+
+log_dir_path = os.path.join(BASE_DIR, os.getenv("LOG_DIR_PATH")) # os.getenv("LOG_DIR_PATH")
 base_url = os.getenv('BASE_URL')
-base_html_path = os.getenv('BASE_HTML_PATH')
-base_json_path = os.getenv('BASE_JSON_PATH')
-cities_path = os.getenv('CITIES_PATH')
-base_json_output_path = os.getenv('BASE_JSON_OUTPUT_PATH')
-base_csv_output_path = os.getenv('BASE_CSV_OUTPUT_PATH')
+base_html_path = os.path.join(BASE_DIR, os.getenv('BASE_HTML_PATH')) # os.getenv('BASE_HTML_PATH')
+base_json_path = os.path.join(BASE_DIR, os.getenv('BASE_JSON_PATH')) # os.getenv('BASE_JSON_PATH')
+cities_path = os.path.join(BASE_DIR, os.getenv('CITIES_PATH')) # os.getenv('CITIES_PATH')
+base_json_output_path = os.path.join(BASE_DIR, os.getenv('BASE_JSON_OUTPUT_PATH')) # os.getenv('BASE_JSON_OUTPUT_PATH')
+base_csv_output_path = os.path.join(BASE_DIR, os.getenv('BASE_CSV_OUTPUT_PATH')) # os.getenv('BASE_CSV_OUTPUT_PATH')
 
 
 start_time = time.time()
 
-print(os.getcwd())
-print("Starting!")
 # settings
 debug = 0
 limit_cities = 100  # limit cities to search
